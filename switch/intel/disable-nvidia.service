@@ -1,0 +1,20 @@
+#/etc/systemd/system/disable-nvidia.service
+#
+#runs gpu disable script as root at graphical.target
+#not needed for LightDM/SDDM but provided as an option.
+#the set-intel.sh can enable this and the
+#set-nvidia.sh script will disable this to avoid issues.
+#
+
+[Unit]
+Description="activates the script to disable nvidia gpu 8sec after graphical.target"
+After=graphical.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/bin/sleep 8
+ExecStart=/usr/share/sddm/scripts/Xsetup
+
+[Install]
+WantedBy=graphical.target
