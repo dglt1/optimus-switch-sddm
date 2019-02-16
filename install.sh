@@ -37,7 +37,7 @@ echo ' '
 echo 'Removing current nvidia prime setup if applicable, file not found can be ignored......'
 rm -rf /etc/X11/mhwd.d/nvidia.conf
 rm -rf /etc/X11/mhwd.d/nvidia.conf.nvidia-xconfig-original
-echo 'Removing gpu configurations from /etc/X11/mhwd.d/  ........'
+echo 'Removing gpu configurations from /etc/X11/mhwd.d/  .......'
 rm -rf /etc/X11/xorg.conf.d/90-mhwd.conf
 rm -rf /etc/X11/xorg.conf.d/optimus.conf
 echo 'Removing gpu configurations from /etc/X11/xorg.conf.d/ ........'
