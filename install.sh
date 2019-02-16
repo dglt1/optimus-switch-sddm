@@ -1,18 +1,19 @@
 #!/bin/sh
 
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
 ####################################
 # custom install script for SDDM   #
 # and following GPU BusID's        #
 # intel iGPU BusID  00:02:0        #
 # nvidia dGPU BusID  01:00:0       #
-# sudo chmod +x install.sh  first! #
+# chmod +x install.sh  first!      #
 ####################################
 
-# if you get these errors: "cp: cannot stat "/home/root/optimus-switch/*"
-# it is because $USER is being read as "root" instead or your user name, to fixed
-# this error, uncomment (remove #) the next line and specify username.
 
-USER="dglt"
 
 echo '##################################################################'
 echo '# be sure you have all requirements BEFORE running this script  ##'
@@ -28,10 +29,7 @@ echo '#them, this is ok!                                              ##'
 echo '##################################################################'
 echo '## IF YOU HAVE ERRORS ABOUT COPYING FILES, SOMETHING IS WRONG   ##'
 echo '## MAKE SURE THIS IS RUN WITH SUDO AND FROM DIRECTORY           ##'
-echo '## /home/$USER/optimus-switch/  (this is very important!!!)     ##'
-echo '## cp: cannot stat "/home/root/optimus-switch/*"  can be fixed  ##'
-echo '## by editing/replacing "$USER" with your username in install.sh##'
-echo '## so far, has only happened with SDDM as far as i know.        ##'
+echo '## ~/optimus-switch-sddm/  (this is very important!!!)          ##'
 echo '##################################################################'
 sleep 5
 
@@ -57,8 +55,9 @@ rm -rf /usr/local/share/optimus.desktop
 rm -rf /usr/local/bin/optimus.sh
 sleep 2
 
-echo 'Copying contents of ~/optimus-switch/* to /etc/ .......'
-sudo cp -r /home/$USER/optimus-switch/* /etc/ 
+echo 'Copying contents of ~/optimus-switch-sddm/* to /etc/ .......'
+mkdir /etc/switch/
+cp -r * /etc/
 
 sleep 2
 echo 'Copying set-intel.sh and set-nvidia.sh to /usr/local/bin/'
