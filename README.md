@@ -1,5 +1,5 @@
-# optimus-switch for LightDM
-- this is a more complete version of my previous lightDM setup scripts.
+# optimus-switch for SDDM
+- this is a more complete version of my previous lightDM optimus-switch.
 - includes an install script to remove conflicting configurations, blacklists, loading of drivers/modules. 
 - made by a manjaro user for use with manjaro linux. (other distros would require modification)
 - 
@@ -13,7 +13,7 @@
   - and an nvidia gpu with BusID 01:00:0`
   - you can verify this in terminal with this command `lspci | grep -E 'VGA|3D'`
   - if yours does not match, edit ~~/optimus-switch/switch/intel/intel-xorg.conf to match your BusID~~
-  - and ~/optimus-switch/switch/nvidia/nvidia-xorg.conf  to match your nvidia BusID
+  - and ~/optimus-switch-sddm/switch/nvidia/nvidia-xorg.conf  to match your nvidia BusID
   - DO THIS BEFORE RUNNING INSTALL SCRIPT, that is, if you want it to work anyway.
   - note: output like this "00:02.0 VGA " has to be formatted like this `0:2:0` in nvidia-xorg.conf for it to work properly.
 
@@ -40,9 +40,9 @@ then:
    -
 - in terminal, from your home directory ~/  (this is important for the install script to work properly)
 - 
-- `git clone https://github.com/dglt1/optimus-switch.git`
-- `sudo chmod +x ~/optimus-switch/install.sh`
-- `cd ~/optimus-switch`
+- `git clone https://github.com/dglt1/optimus-switch-sddm.git`
+- `cd ~/optimus-switch-sddm`
+- `chmod +x install.sh`
 - `sudo ./install.sh`
 - 
 -  Done! after reboot you will be using intel/nvidia prime. 
