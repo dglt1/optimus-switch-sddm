@@ -9,7 +9,7 @@
 # PLEASE READ BELOW TO ENABLE THIS
 
 xrandr --auto
-echo 'auto' > '/sys/bus/pci/devices/0000:02:00.0/power/control'  #adjust busid if needed
+echo 'auto' > '/sys/bus/pci/devices/0000:01:00.0/power/control'  #adjust busid if needed
 
 #############
 ##make sure the line below is the correct acpi_call to disable your nvidia gpu. 
