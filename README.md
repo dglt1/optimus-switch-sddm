@@ -83,3 +83,6 @@ then:
 
 - this should be pretty straight forward, if however, you cant figure it out, i am @dglt on the manjaro forum. i hope this
 - is as useful for you as it is for me.
+
+- added side-note, for persistent changes to configurations, modify the configurations used for switching located in
+ - /etc/switch/nvidia/  and  /etc/switch/intel/  
