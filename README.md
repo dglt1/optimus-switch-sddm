@@ -50,7 +50,7 @@ then:
 - to change the default mode to intel only, run:`sudo set-intel.sh`
 - to switch the default mode to intel/nvidia prime, run: `sudo set-nvidia.sh`
 - 
-- Done!
+- read below!
 -
 - switch as often as you like. both intel mode and prime mode work without any issues that i know of, please make me aware - of any issues so i may fix them, or make note of how you have already fixed it for yourself.
 
