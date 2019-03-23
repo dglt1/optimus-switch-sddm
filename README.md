@@ -27,7 +27,8 @@ Lets begin.
 - if you dont already have video-nvidia installed, do that now:
 - `sudo mhwd -i pci video-nvidia`
 then:
- - `sudo pacman -S linux-headers acpi_call-dkms xf86-video-intel git` 
+- (replace linuxXXX-headers with the kernel version your using, for example linux419-headers is for the 4.19 kernel, so edit to match)
+ - `sudo pacman -S linuxXXX-headers acpi_call-dkms xf86-video-intel git` 
  - `sudo modprobe acpi_call`
 
 - if you have any custom video/gpu .conf files in the following directories, backup/delete them. (they can not remain there).
