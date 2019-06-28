@@ -92,6 +92,7 @@ chmod +x /usr/local/bin/set-nvidia.sh
 chmod a+rx /usr/share/sddm/scripts/Xsetup
 chmod a+rx /etc/switch/intel/no-optimus.sh
 chmod a+rx /etc/switch/nvidia/optimus.sh
+chmod +x /etc/switch/gpu_switch_check.sh
 
 sleep 1
 echo ' '
