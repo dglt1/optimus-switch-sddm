@@ -17,7 +17,7 @@ fi
 
 echo '##################################################################'
 echo '# be sure you have all requirements BEFORE running this script  ##'
-echo '# "pacman -S linux-headers acpi_call-dkms xf86-video-intel git" ##'
+echo '# linux*-headers acpi_call-dkms xf86-video-intel git xorg-xrandr##'
 echo '# ****installing in 5 sec... CTRL+C to abort****                ##'
 echo '##################################################################'
 sleep 6
