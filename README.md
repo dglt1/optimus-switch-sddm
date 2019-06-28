@@ -59,7 +59,7 @@ then:
 - you may notice that after you boot into the intel only mode that the nvidia gpu is not yet disabled and its because you - cant run a proper test to see which acpi_call to use while using the nvidia gpu (it hard locks up the system).
 
 - so once your booted into an intel only session run this in terminal:
-- `sudo /usr/share/acpi_call/examples/turn_off_gpu.sh`
+- `sudo /etc/switch/gpu_switch_check.sh`
 
 - you should see a list of various acpi calls, find the one that says “works!” , copy it. and then:
 - `sudo nano /etc/switch/intel/no-optimus.sh`
