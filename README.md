@@ -4,7 +4,7 @@ If you're using LightDM or GDM, you can get to those repo's here: https://github
 
 *Made by a manjaro user for use with manjaro linux.* (other distros require modifications)
 
-## Features:
+## Features
 - It provides two modes of operation:
   - PRIME mode for best *performance* by utilizing nvidia GPU
   - intel mode for best *battery life* by utilizing intel GPU (see point below)
@@ -22,7 +22,7 @@ DO THIS BEFORE RUNNING INSTALL SCRIPT, that is, if you want it to work anyway.
 **NOTE**: output like `00:02.0 VGA` has to be formatted like `0:2:0` in nvidia-xorg.conf for it to work properly.
 
 ## How to Use
-### Requirements:
+### Requirements
 Check `mhwd -li` to see what video drivers are installed, for this to work, you need only `video-nvidia` installed, if you have others, start by removing them like this:
 
 `sudo mhwd -r pci name-of-video-driver` (remove any/all mhwd installed gpu drivers besides video-nvidia)
@@ -57,7 +57,7 @@ To set modes (post installation) do:
 - to change the default mode to intel only: `sudo set-intel.sh`
 - to switch the default mode to intel/nvidia prime: `sudo set-nvidia.sh`
  
-## Usage:
+## Usage
 Switch as often as you like. Both intel mode and prime mode work without any issues that I know of, please make me aware of any issues so I may fix them, or make note of how you have already fixed it for yourself.
 
 You may notice that after you boot into the intel only mode that the nvidia gpu is not yet disabled and its because you can't run a proper test to see which acpi_call to use while using the nvidia gpu (it hard locks up the system).
