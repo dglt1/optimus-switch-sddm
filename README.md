@@ -1,6 +1,7 @@
 # optimus-switch for SDDM
 ## Introduction
-If you're using LightDM or GDM, you can get to those repo's here: https://github.com/dglt1. This includes an install script to remove conflicting configurations, blacklists, loading of drivers/modules. 
+If you're using LightDM or GDM, you can get to those repo's here: https://github.com/dglt1. This includes an install script to remove conflicting configurations, blacklists, loading of drivers/modules.
+
 *Made by a manjaro user for use with manjaro linux.* (other distros would requires modification)
 
 ## Features:
@@ -10,46 +11,41 @@ If you're using LightDM or GDM, you can get to those repo's here: https://github
 - Easy switching between two modes mentioned above.
 - In intel mode, nvidia GPU is completely powered off (won't be visible in `inxi -G` or `lscpi -v | grep -E 'VGA|3D'`) and not negatively effect sleep/suspend cycles (hangs/lockups).
 
-This script by default is for an intel gpu with a ~~BusID 0:2:0~~
+## Before you begin
+This script by default is for an intel gpu with a ~~BusID 0:2:0~~.
+
 EDIT: intel BusID is only needed if intel drivers require it to work (I have not found this to be the case) and an nvidia gpu with BusID `01:00:0`. You can verify this in terminal with this command `lspci | grep -E 'VGA|3D'` if yours does not match, edit ~~/optimus-switch/switch/intel/intel-xorg.conf to match your BusID~~ and ~/optimus-switch-sddm/switch/nvidia/nvidia-xorg.conf  to match your nvidia BusID
-
 DO THIS BEFORE RUNNING INSTALL SCRIPT, that is, if you want it to work anyway.
+**NOTE**: output like this `00:02.0 VGA` has to be formatted like this `0:2:0` in nvidia-xorg.conf for it to work properly.
 
-NOTE: output like this `00:02.0 VGA` has to be formatted like this `0:2:0` in nvidia-xorg.conf for it to work properly.
-
-
-## Installation
-
-requirements:
-check `mhwd -li` to see what video drivers are installed, for this to work, you need only
-video-nvidia installed, if you have others, start by removing them like this.
-`sudo mhwd -r pci name-of-video-driver` (remove any/all mhwd installed gpu drivers besides video-nvidia.)
-if you dont already have video-nvidia installed, do that now:
-`sudo mhwd -i pci video-nvidia`
-then:
-(replace linuxXXX-headers with the kernel version your using, for example linux419-headers is for the 4.19 kernel, so edit to match)
-`sudo pacman -S linuxXXX-headers acpi_call-dkms xorg-xrandr xf86-video-intel git` 
-`sudo modprobe acpi_call`
-if you have any custom video/gpu .conf files in the following directories, backup/delete them. (they can not remain there).
-the install script removes the most common ones, but custom file names wont be noticed. only you know if they exist.
-and clearing the entire directory would likely break other things, this install will not do that. so clean up if necessary.
+## Usage
+### Requirements:
+Check `mhwd -li` to see what video drivers are installed, for this to work, you need only `video-nvidia` installed, if you have others, start by removing them like this: `sudo mhwd -r pci name-of-video-driver` (remove any/all mhwd installed gpu drivers besides video-nvidia)
+If you dont already have video-nvidia installed, do that now: `sudo mhwd -i pci video-nvidia` then:
+`sudo pacman -S linuxXXX-headers acpi_call-dkms xorg-xrandr xf86-video-intel git` (replace linuxXXX-headers with the kernel version your using, for example linux419-headers is for the 4.19 kernel, so edit to match)
+`sudo modprobe acpi_call` 
+### Cleaning 
+If you have any custom video/gpu .conf files in the following directories, backup/delete them (they can not remain there). The install script removes the most common ones, but custom file names won't be noticed (only you know if they exist) and clearing the entire directory would likely break other things, this install will not do that so clean up if necessary.
+```
 /etc/X11/
 /etc/X11/mhwd.d/
 /etc/X11/xorg.conf.d/
 /etc/modprobe.d/
 /etc/modules-load.d/
+```
+### Installation
+In terminal, from your home directory ~/  (this is important for the install script to work properly)
+ ```
+git clone https://github.com/dglt1/optimus-switch-sddm.git
+cd ~/optimus-switch-sddm
+chmod +x install.sh
+sudo ./install.sh
+```
+Done! after reboot you will be using intel/nvidia prime. 
 
- in terminal, from your home directory ~/  (this is important for the install script to work properly)
- 
- `git clone https://github.com/dglt1/optimus-switch-sddm.git`
- `cd ~/optimus-switch-sddm`
- `chmod +x install.sh`
- `sudo ./install.sh`
- 
-  Done! after reboot you will be using intel/nvidia prime. 
- 
- to change the default mode to intel only, run:`sudo set-intel.sh`
- to switch the default mode to intel/nvidia prime, run: `sudo set-nvidia.sh`
+To set modes (intel/nvidia)
+- to change the default mode to intel only, run:`sudo set-intel.sh`
+- to switch the default mode to intel/nvidia prime, run: `sudo set-nvidia.sh`
  
  read below!
 
