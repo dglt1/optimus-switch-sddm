@@ -29,7 +29,8 @@ Check `mhwd -li` to see what video drivers are installed, for this to work, you 
 
 If you dont already have video-nvidia installed, do that now: 
 
-`sudo mhwd -i pci video-nvidia` then:
+`sudo mhwd -i pci video-nvidia`
+
 Note: there has been a recent change to how nvidia drivers are handled and are now split into these options for better selection. so choose one that works with your hardware.
 ```
 video-nvidia-340xx
