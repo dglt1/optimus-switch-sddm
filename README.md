@@ -30,7 +30,14 @@ Check `mhwd -li` to see what video drivers are installed, for this to work, you 
 If you dont already have video-nvidia installed, do that now: 
 
 `sudo mhwd -i pci video-nvidia` then:
-
+Note: there has been a recent change to how nvidia drivers are handled and are now split into these options for better selection. so choose one that works with your hardware.
+```
+video-nvidia-340xx
+video-nvidia-390xx
+video-nvidia-418xx
+video-nvidia-430xx
+video-nvidia-435xx
+```
 `sudo pacman -S linuxXXX-headers acpi_call-dkms xorg-xrandr xf86-video-intel git` (replace linuxXXX-headers with the kernel version your using, for example linux419-headers is for the 4.19 kernel, so edit to match)
 
 `sudo modprobe acpi_call` 
