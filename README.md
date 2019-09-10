@@ -76,7 +76,13 @@ So once your booted into an intel only session run this in terminal:
 You should see a list of various acpi calls, find the one that says “works!” , copy it and then:
   `sudo nano /etc/switch/intel/no-optimus.sh`
 
-At the bottom you will see 2 lines commented out (`# ....`), uncomment them (remove #) and if the acpi_call is different from the one you just copied, edit/replace with the good one. If your nvidia BusID is not `1:00:0` edit BusID's on both lines that - specify BusID's, save/exit. Then:
+At the bottom you will see 2 lines commented out
+```
+#echo '\_SB.PCI0.PEG0.PEGP._OFF' > /proc/acpi/call 
+#echo -n 1 > '/sys/bus/pci/devices/0000:01:00.0/remove'
+```
+
+uncomment them (remove #) and if the acpi_call is different from the one you just copied, edit/replace with the good one. If your nvidia BusID is not `1:00:0` edit BusID's on both lines that - specify BusID's, save/exit. Then:
 ```
 sudo set-intel.sh
 reboot
