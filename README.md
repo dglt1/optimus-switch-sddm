@@ -103,3 +103,7 @@ This should be pretty straight forward, if however, you cant figure it out, I am
 
 Added side-note, for persistent changes to configurations, modify the configurations used for switching located in `/etc/switch/nvidia/`  and  `/etc/switch/intel/`.
 
+### There is now a DE/WM agnostic indicator made by linesma
+
+This tool runs at startup and shows a tray icon showing which mode your using and allows you to switch modes easily without using CLI. 
+https://github.com/linesma/manjaroptimus-appindicator
