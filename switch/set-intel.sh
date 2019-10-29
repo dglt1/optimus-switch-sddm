@@ -4,7 +4,7 @@
 #unless you replace intel-xorg.conf 
 #with modeset.xorg.conf on the line below.
 echo 'Removing nvidia prime setup......'
-rm -rf /etc/X11/mhwd.d/99-nvidia.conf
+
 rm -rf /etc/X11/xorg.conf.d/99-nvidia.conf
 rm -rf /etc/modprobe.d/99-nvidia.conf
 rm -rf /etc/modules-load.d/99-nvidia.conf
