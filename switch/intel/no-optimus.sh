@@ -20,17 +20,18 @@ then
 
 fi
 
-#############
-##make sure the line below is the correct acpi_call to disable your nvidia gpu. 
-#to find out what call disables your nvidia gpu,
-#run this (not while using nvidia gpu, this is why i left it commented out.
+
+
+#to find out what acpi_call disables your nvidia gpu,
+#run this command
 #
 #` sudo /usr/share/acpi_call/examples/turn_off_gpu.sh ` 
 #
-#and see which acpi_call is returned as "works!" and then edit line 37 to match.
+#and see which acpi_call is returned as "works!" and then edit line 38 to match if needed.
 #default BusID is set to 0000:01:00.0 (syntax is important) 
-#if your nvidia gpu has a 1:0:0 busID, just uncomment the line 35 below, if not
-#edit lines 16,19,35, and 38 to match your BusID
+#be sure to edit lines 16,19,36,38,39 to match your BusID and working acpi_call if needed
+#then uncomment lines 38,39
+
 
 if [ -d "/sys/bus/pci/devices/0000:01:00.0" ]
 then
